@@ -1,5 +1,5 @@
 
-from dask.distributed import Client, LocalCluster
+
 
 # client(): Client is a Python class used to make a connection
 # between the Dask cluster and Python code (local machine).
@@ -19,13 +19,17 @@ from dask.distributed import Client, LocalCluster
 # - We can easily connect Python code with Dask.
 # - We can see the status of Dask.
 
-
+from dask.distributed import LocalCluster,Client
 def create_dask_client():
     cluster = LocalCluster(
         n_workers=4,            # Number of workers in the cluster
         threads_per_worker=2,   # Number of threads per worker
-        memory_limit="16GB"     # Memory limit for each worker
+        memory_limit="16GB" ,    # Memory limit for each worker
+        dashboard_address = ".8790"
     )
 
-    client = Client(cluster)
-    return client
+    
+    return Client(cluster)
+
+# Backwards-compatible alias expected by some modules
+start_dask = create_dask_client

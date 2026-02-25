@@ -20,12 +20,6 @@ def parse_log_line(line):
     )
     data["raw"] = line.strip()
     return data
-    return {
-        "timestamp": match.group("timestamp"),
-        "level": match.group("level"),
-        "service": match.group("service"),
-        "message": match.group("message")
-    }
     
 
 #Groupdict()

@@ -11,4 +11,4 @@ log_schema = {
     "message": "string"
 }
 
-#dataframe df.astype(log_schema)
+#astype(LOG_SCHEMA)
